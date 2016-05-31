@@ -1,1 +1,63 @@
+<!-- Main Wrapper -->
+<div id="main-wrapper">
+	<div class="main-wrapper-style2">
+		<div class="inner">
+			<div class="container">
+				<div class="row">
+					<div class="12u skel-cell-mainContent">
+						<div id="content">
 
+							<!-- Content -->
+						
+								<article>
+									<header class="major">
+
+										<span class="byline">Cliquez pour fair des cercles</span>
+									</header>
+
+    <body>
+        <canvas id="canvas1" width="500" height="500">
+           .
+        </canvas>
+    </body>
+<script>
+function circle(x,y)
+{
+  var canvas = document.getElementById("canvas1"); 
+  var context = canvas.getContext("2d");
+  context.beginPath();
+  context.lineWidth="2";
+  context.arc(x, y, 90, 0, 2 * Math.PI);
+  context.stroke();
+}
+
+(function() {
+    document.onmousemove = handleMouseMove;
+    function handleMouseMove(event) {
+        var dot, eventDoc, doc, body, pageX, pageY;
+
+        event = event || window.event; // IE-ism
+
+        // If pageX/Y aren't available and clientX/Y are,
+        // calculate pageX/Y - logic taken from jQuery.
+        // (This is to support old IE)
+        if (event.pageX == null && event.clientX != null) {
+            eventDoc = (event.target && event.target.ownerDocument) || document;
+            doc = eventDoc.documentElement;
+            body = eventDoc.body;
+
+            event.pageX = event.clientX +
+              (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+              (doc && doc.clientLeft || body && body.clientLeft || 0);
+            event.pageY = event.clientY +
+              (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+              (doc && doc.clientTop  || body && body.clientTop  || 0 );
+        }
+
+       circle(event.pageX,event.pageY); // Use event.pageX / event.pageY here
+    }
+})();
+  
+
+  
+</script>
