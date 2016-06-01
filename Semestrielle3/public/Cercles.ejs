@@ -22,18 +22,23 @@
         </canvas>
     </body>
 <script>
-
+jQuery(document).ready(function(){
+   $().mousemove(function(e){
+      window.mouseXPos = e.pageX;
+      window.mouseYPos = e.pageY;
+   }); 
+})
   
-function circle()
+function circle(x,y)
 {
   var canvas = document.getElementById("canvas1"); 
   var context = canvas.getContext("2d");
   context.beginPath();
   context.lineWidth="2";
-  context.arc(100, 100, 90, 0, 2 * Math.PI);
+  context.arc(x, y, 90, 0, 2 * Math.PI);
   context.stroke();
 }
-circle();  
+circle(window.mouseXPos,window.mouseYPos);  
 </script>
 
 
